@@ -6,12 +6,6 @@ Build docker image
 ```bash
 docker-compose build
 ```
-Run the following command to install the package through Composer:
-
-```bash
-docker-compose exec composer install
-```
-
 ## Usage
 Run docker image as a daemon
 ```bash
@@ -22,6 +16,15 @@ Stop docker
 docker-compose stop
 ```
 
+## Development
+First, get into container
+```
+docker composer exec app bash 
+```
+Create table with generated/configured migration class
+```
+php artisan migrate 
+```
 ## Local connection
 Configuration .env:
 ```
