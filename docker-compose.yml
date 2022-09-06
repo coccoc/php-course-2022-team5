@@ -35,15 +35,14 @@ services:
     ports:
       - '${DOCKER_MYSQL_EXTERNAL_PORT}:3306'
     environment:
-      MYSQL_DATABASE: cinema-php
+      MYSQL_DATABASE: 'cinema-php'
       MYSQL_USER: dev
-      MYSQL_PASSWORD: dev==
-      MYSQL_ROOT_PASSWORD: dev==
+      MYSQL_PASSWORD: dev
       MYSQL_ROOT_HOST: '%'
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
       TZ: Asia/Ho_Chi_Minh
     volumes:
       - mysql-db:/var/lib/mysql/
-      - ./docker/mysql/init:/docker-entrypoint-initdb.d/:ro #init database dev user
     command: mysqld --sql_mode=""
     networks:
       - default
