@@ -21,6 +21,11 @@ First, get into container
 ```
 docker composer exec app bash 
 ```
+Composer install
+```bash
+composer install
+```
+
 Create table with generated/configured migration class
 ```
 php artisan migrate 

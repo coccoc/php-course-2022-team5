@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMovieplayTable extends Migration
+class CreateMoviePlaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateMovieplayTable extends Migration
      */
     public function up()
     {
-        Schema::create('movieplay', function (Blueprint $table) {
+        Schema::create('movie_plays', function (Blueprint $table) {
             $table->id();
+            $table->foreign("movie_id")->references("id")->on("movie");
+            $table->foreign("hall_id")->references("id")->on("hall");
+            $table->date("play_date");
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateMovieplayTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movieplay');
+        Schema::dropIfExists('movie_plays');
     }
 }
