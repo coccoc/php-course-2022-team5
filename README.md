@@ -19,7 +19,7 @@ docker-compose stop
 ## Development
 First, get into container
 ```
-docker composer exec app bash 
+docker-compose exec app bash 
 ```
 Composer install
 ```bash
