@@ -51,7 +51,6 @@ class MovieController extends Controller
     //delete a movie in movie table
     public function delete($id) {
         $movie = Movie::findOrFail($id);
-
         $movie -> delete();
     }
 }

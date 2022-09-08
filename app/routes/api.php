@@ -18,11 +18,16 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get("/logout");
+//ticket
+Route::get('/ticket', 'TicketController@getAll');
+//check-later
+//Route::get('/ticket/create', 'TicketController@create');
+//Route::get('/ticket/update/{id}', 'TicketController@update');
+//Route::get('/ticket/delete/{id}', 'TicketController@delete');
 
 //movie
 Route::get('/movie', 'App\Http\Controllers\MovieController@getAll');
-Route::get('/movie/{id}', 'App\Http\Controllers\MovieController@getById');  
+Route::get('/movie/{id}', 'App\Http\Controllers\MovieController@getById');
 
 Route::post('/movie/create', 'App\Http\Controllers\MovieController@create');
 

@@ -14,11 +14,13 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
+            $table->id("id");
             $table->unsignedBigInteger("hall_id")->unsigned();
             $table->string("seat_label");
             $table->boolean("status");
-            $table->timestamps();
+            //$table->timestamps();
+            $table->string("type");
+            $table->float("price");
         });
 
         Schema::table("tickets", function (Blueprint $table) {
