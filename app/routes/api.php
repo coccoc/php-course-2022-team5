@@ -1,7 +1,8 @@
 <?php
-
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::post('/login', 'App\Http\Controllers\LoginController@login');
+Route::post('/register', 'App\Http\Controllers\RegisterController@register');
 
 //ticket
-Route::get('/ticket', 'TicketController@getAll');
+Route::get('/ticket', 'App\Http\Controllers\TicketController@getAll');
 //check-later
 //Route::get('/ticket/create', 'TicketController@create');
 //Route::get('/ticket/update/{id}', 'TicketController@update');
