@@ -20,13 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 //ticket
 Route::get('/ticket', 'TicketController@getAll');
-//check-later
-//Route::get('/ticket/create', 'TicketController@create');
-//Route::get('/ticket/update/{id}', 'TicketController@update');
-//Route::get('/ticket/delete/{id}', 'TicketController@delete');
+Route::post('/ticket/create', 'TicketController@create');
+Route::put('/ticket/update/{id}', 'TicketController@update');
+Route::delete('/ticket/delete/{id}', 'TicketController@delete');
+// Add "App\Http\Controllers\" to path if error 500 cannot find class
 
 //movie
 Route::get('/movie', 'App\Http\Controllers\MovieController@getAll');
+//Route::get('/movie', 'MovieController@getAll');
 Route::get('/movie/{id}', 'App\Http\Controllers\MovieController@getById');
 
 Route::post('/movie/create', 'App\Http\Controllers\MovieController@create');

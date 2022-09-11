@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         //         'email' => Str::random(10).'@gmail.com',
         //         'password' => Hash::make('password'),
         //     ]);
-        Ticket::factory()->count(100)->create();
+        Ticket::factory()->count(10)->create();
     }
 }

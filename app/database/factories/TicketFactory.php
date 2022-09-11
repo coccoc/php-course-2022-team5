@@ -18,7 +18,7 @@ class TicketFactory extends Factory
     {
         return [
             'hall_id' => rand(1, 3), //comment out this when hall_id available
-            'seat_label' => $this->faker->word() . rand(1, 9),
+            'seat_label' => $this->faker->randomElement($array = array ('A','B','C','D','E','F')). rand(1, 9),
             'status' => $this->faker->boolean,
             'type' => $this->faker->word(),
             'price' => rand(0, 10) / 10,
