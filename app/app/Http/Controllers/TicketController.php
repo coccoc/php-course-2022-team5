@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Database\Factories\TicketFactory;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use Illuminate\Database\Eloquent\Model;
 
 /*
     Admin Create, Read, Update, Delete ticket prices different by seats.
@@ -22,30 +23,38 @@ class TicketController extends Controller
         return response()->json($ticket);
     }
 //
-    //CREATE
-     public function create(Request $request){
+    //CREATE SINGLE TICKET
+     public function create(Request $request)
+     {
          $ticket = new Ticket;
-         $ticket->hall_id= $request->hall_id;
+         $ticket->hall_id = $request->hall_id;
          $ticket->seat_label = $request->seat_label;
-         $ticket->status = $request->status;
-         $ticket->type = $request->type;
+         $ticket->status = false;
+         $ticket->row = $request->row;
          $ticket->price = $request->price;
          $ticket->save();
          return response()->json($ticket);
      }
 
-    //UPDATE
+    //UPDATE SINGLE TICKET
     public function update(Request $request, $id){
         $ticket = Ticket::findOrFail($id);
 
         $ticket->hall_id= $request->hall_id;
         $ticket->seat_label = $request->seat_label;
         $ticket->status = $request->status;
-        $ticket->type = $request->type;
+        $ticket->row = $request->row;
         $ticket->price = $request->price;
         $ticket->save();
         return response()->json($ticket);
     }
+
+    //BULK UPDATE TICKETS BY ROW
+    public function updateBulk(Request $request, $row){
+        Ticket::where('row', $row)->update(['price' => $request->price]);
+        return response()->json("updated price of ". $row. " row");
+    }
+
     public function delete($id)
     {
         $ticket = Ticket::findOrFail($id);

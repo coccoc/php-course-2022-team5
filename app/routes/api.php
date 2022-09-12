@@ -25,6 +25,7 @@ Route::post('/register', 'App\Http\Controllers\RegisterController@register');
 Route::get('/ticket', 'TicketController@getAll');
 Route::post('/ticket/create', 'TicketController@create');
 Route::put('/ticket/update/{id}', 'TicketController@update');
+Route::put('/ticket/update/bulk/{row}', 'TicketController@updateBulk');
 Route::delete('/ticket/delete/{id}', 'TicketController@delete');
 // Add "App\Http\Controllers\" to path if error 500 cannot find class
 

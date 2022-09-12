@@ -16,10 +16,10 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id("id");
             $table->unsignedBigInteger("hall_id")->unsigned();
-            $table->string("seat_label");
+            $table->string("seat_label"); // A1, A2, A3, B1, B2,...
             $table->boolean("status");
             //$table->timestamps();
-            $table->string("type");
+            $table->string("row"); // row A, B, C,..
             $table->float("price");
         });
 

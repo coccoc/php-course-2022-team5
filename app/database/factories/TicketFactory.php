@@ -16,11 +16,12 @@ class TicketFactory extends Factory
 
     public function definition()
     {
+        $row = $this->faker->randomElement($array = array ('A','B','C','D','E','F'));
         return [
-            'hall_id' => rand(1, 3), //comment out this when hall_id available
-            'seat_label' => $this->faker->randomElement($array = array ('A','B','C','D','E','F')). rand(1, 9),
+            'hall_id' => rand(1, 3),
             'status' => $this->faker->boolean,
-            'type' => $this->faker->word(),
+            'row' => $row,
+            'seat_label' => $row. rand(1, 9),
             'price' => rand(0, 10) / 10,
         ];
     }

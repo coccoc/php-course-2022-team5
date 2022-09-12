@@ -16,7 +16,7 @@ class Ticket extends Model
         'hall_id',
         'seat_label',
         'status',
-        'type',
+        'row',
         'price'
     ];
 }
