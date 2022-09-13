@@ -16,7 +16,7 @@ class RegisterController extends Controller
       $user= new User();
       $user->email = $data['email'];
       $user->password = md5($data['password']);
-      $user->isAdmin = $isAdmin;
+      $user->is_dmin = $isAdmin;
       $check = $user->save();
       if($check){
         return response()->json([
