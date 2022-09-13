@@ -19,7 +19,7 @@ class CreateMoviesTable extends Migration
             $table->string("country");
             $table->string("producer");
             $table->string("actors");
-            $table->string("description");
+            $table->string("description", 512);
             $table->timestamps();
         });
     }

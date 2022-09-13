@@ -13,7 +13,6 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
-        //
         \App\Models\Movie::factory(10)->create();
     }
 }

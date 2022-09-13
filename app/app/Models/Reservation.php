@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Reservation extends Model
 {
     use HasFactory;
-    public $timestamps = false;
-    protected $table = 'users';
-    protected $fillable = [
-        'email',
-        'password',
-        'is_admin',
-        'remember_token',
-    ];
 
+    public $timestamps = true;
+    protected $table = 'reservations';
+    protected $fillable = [
+        'booking_user_id',
+        'ticket_id',
+    ];
 }

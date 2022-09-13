@@ -1,8 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,15 +28,20 @@ Route::delete('/ticket/delete/{id}', 'TicketController@delete');
 // Add "App\Http\Controllers\" to path if error 500 cannot find class
 
 //movie
-Route::get('/movie', 'App\Http\Controllers\MovieController@getAll');
+Route::get('/movie', 'MovieController@getAll');
 //Route::get('/movie', 'MovieController@getAll');
-Route::get('/movie/{id}', 'App\Http\Controllers\MovieController@getById');
-
-Route::post('/movie/create', 'App\Http\Controllers\MovieController@create');
-
-Route::put('/movie/update/{id}', 'App\Http\Controllers\MovieController@update');
-
-Route::delete('/movie/delete/{id}', 'App\Http\Controllers\MovieController@delete');
+Route::get('/movie/{id}', 'MovieController@getById');
+Route::post('/movie/create', 'MovieController@create');
+Route::put('/movie/update/{id}', 'MovieController@update');
+Route::delete('/movie/delete/{id}', 'MovieController@delete');
 
 //movie session
-Route::get('/movieplay/{id}', 'App\Http\Controllers\MoviePlayController@getMovieSession');
+Route::get('/movie-play/{id}', 'MoviePlayController@getMovieSession');
+Route::post('/movie-play/create', 'MoviePlayController@createMovieSession');
+Route::put('/movie-play/update/{id}', 'MoviePlayController@updateMovieSession');
+Route::delete('/movie-play/delete/{id}', 'MoviePlayController@deleteMovieSession');
+
+//reservation
+Route::get('/booking/{userId}', 'ReservationController@getByUserId');
+Route::post('/booking/{userId}/submit', 'ReservationController@create');
+Route::delete('/booking/{userId}/cancel', 'ReservationController@delete');

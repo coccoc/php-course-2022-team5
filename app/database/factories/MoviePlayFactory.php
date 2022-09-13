@@ -15,11 +15,15 @@ class MoviePlayFactory extends Factory
      */
     public function definition()
     {
+        $movieIds = Movie::query()->limit(2)->pluck('id');
+        $hallIds = Hall::query()->limit(3)->pluck('id');
+        $faker = $this->faker;
+
         return [
             //
-            'movie_id' => Movie::factory(),
-            'hall_id' => Hall::factory(),
-            'play_date' => $this->faker->dateTimeBetween($startDate = '-20 years', $endDate = 'now')
+            'movie_id' => $faker->randomElement($movieIds),
+            'hall_id' => $faker->randomElement($hallIds),
+            'play_date' => $faker->dateTimeBetween('now', '+3 months')
         ];
     }
 }

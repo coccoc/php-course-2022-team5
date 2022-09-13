@@ -13,13 +13,15 @@ class MovieFactory extends Factory
      */
     public function definition()
     {
+        $faker = $this->faker;
+
         return [
             //
-            'title' => $this->faker->word(3),
-            'country' => $this->faker->country,
-            'producer' => $this->faker->name(2),
-            'actors' => $this->faker->name(2),
-            'description' => $this->faker->paragraph(3),
+            'title' => $faker->word(3),
+            'country' => $faker->country,
+            'producer' => $faker->name(2),
+            'actors' => $faker->name(2),
+            'description' => $faker->paragraph(3),
         ];
     }
 }

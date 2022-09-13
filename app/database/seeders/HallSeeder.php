@@ -13,7 +13,6 @@ class HallSeeder extends Seeder
      */
     public function run()
     {
-        //
         \App\Models\Hall::factory(5)->create();
     }
 }

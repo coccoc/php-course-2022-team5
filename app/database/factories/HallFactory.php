@@ -13,10 +13,11 @@ class HallFactory extends Factory
      */
     public function definition()
     {
+        $faker = $this->faker;
         return [
             //
-            'capacity' => $this->faker->randomDigitNotNull,
-            'rows' => $this->faker->randomDigitNotNull
+            'capacity' => $faker->randomDigitNotNull,
+            'rows' => $faker->randomDigitNotNull
         ];
     }
 }
