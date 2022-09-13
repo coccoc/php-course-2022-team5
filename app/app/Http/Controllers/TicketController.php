@@ -39,7 +39,7 @@ class TicketController extends Controller
     //UPDATE SINGLE TICKET
     public function update(Request $request, $id){
         $ticket = Ticket::findOrFail($id);
-
+        $ticket->movie_play_id = $request->movie_play_id;
         $ticket->hall_id= $request->hall_id;
         $ticket->seat_label = $request->seat_label;
         $ticket->status = $request->status;

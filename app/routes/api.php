@@ -29,14 +29,14 @@ Route::delete('/ticket/delete/{id}', 'TicketController@delete');
 
 //movie
 Route::get('/movie', 'MovieController@getAll');
-//Route::get('/movie', 'MovieController@getAll');
 Route::get('/movie/{id}', 'MovieController@getById');
 Route::post('/movie/create', 'MovieController@create');
 Route::put('/movie/update/{id}', 'MovieController@update');
 Route::delete('/movie/delete/{id}', 'MovieController@delete');
 
 //movie session
-Route::get('/movie-play/{id}', 'MoviePlayController@getMovieSession');
+Route::get('/movie-play', 'MoviePlayController@getAll');
+Route::get('/movie-play/{id}', 'MoviePlayController@get');
 Route::post('/movie-play/create', 'MoviePlayController@createMovieSession');
 Route::put('/movie-play/update/{id}', 'MoviePlayController@updateMovieSession');
 Route::delete('/movie-play/delete/{id}', 'MoviePlayController@deleteMovieSession');

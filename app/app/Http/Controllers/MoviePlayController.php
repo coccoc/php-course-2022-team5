@@ -9,10 +9,22 @@ use Exception;
 
 class MoviePlayController extends Controller
 {
+    public function getAll(Request $request) {
+        $resp = [];
+        try {
+            $resp = MoviePlay::all();
+        } catch (Exception $e) {
+            logs($e);
+        } finally {
+            return response()->json($resp);
+        }
+    }
+
     //get movie session between 2 dates from movie_plays table
-    public function getMovieSession(Request $request, $id) {
+    public function get(Request $request) {
         $play_start = $request->start;
         $play_end = $request->end;
+        $id = $request->id;
 
         $movie_play = MoviePlay::where([
             ['movie_id', $id],
