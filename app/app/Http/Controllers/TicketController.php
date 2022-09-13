@@ -24,7 +24,7 @@ class TicketController extends Controller
     }
 //
     //CREATE SINGLE TICKET
-     publicse function create(Request $request)
+     public function create(Request $request)
      {
          $ticket = new Ticket;
          $ticket->hall_id = $request->hall_id;
