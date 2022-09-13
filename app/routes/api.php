@@ -45,3 +45,10 @@ Route::delete('/movie-play/delete/{id}', 'MoviePlayController@deleteMovieSession
 Route::get('/booking/{userId}', 'ReservationController@getByUserId');
 Route::post('/booking/{userId}/submit', 'ReservationController@create');
 Route::delete('/booking/{userId}/cancel', 'ReservationController@delete');
+
+//hall
+Route::get('/hall', 'HallController@getAll');
+Route::get('/hall/{id}', 'HallController@getById');
+Route::post('/hall/create', 'HallController@create');
+Route::put('/hall/update/{id}', 'HallController@update');
+Route::delete('/hall/delete/{id}', 'HallController@delete');
