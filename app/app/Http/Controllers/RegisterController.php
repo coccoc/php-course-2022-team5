@@ -16,7 +16,11 @@ class RegisterController extends Controller
       $user= new User();
       $user->email = $data['email'];
       $user->password = md5($data['password']);
+<<<<<<< Updated upstream
       $user->is_dmin = $isAdmin;
+=======
+      $user->is_admin = $request->is_admin;
+>>>>>>> Stashed changes
       $check = $user->save();
       if($check){
         return response()->json([
